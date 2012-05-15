@@ -92,7 +92,7 @@ var exports = module.exports = function (chars, exports) {
       console.log(a < s && s < b)
   /**/
 
-      if(a < s && s < b && c != '!')
+      if(a < s && s < b && c != exports.lo)
         break;
 
     }
