@@ -1,14 +1,9 @@
 var u = require('../')
 var a = require('assertions')
 
-  function _(l, b, h) {
-    a.equal(u.between(l, h), b)
-  }
-
-exports.between = function (t) {
-
-  function assertBetween (lo, hi, depth) {
-    var b = u.between(lo, hi)
+  function assertBetween (lo, hi, depth, between) {
+    between = between || u.between
+    var b = between(lo, hi)
 
 /*
     console.log(depth)
@@ -21,14 +16,15 @@ exports.between = function (t) {
     a.lessThan(b , hi)
 
     if(!depth) return
-    if(~~(Math.random()*2)) {
-      assertBetween(lo, b, depth - 1)
-      //assertBetween(b, hi, depth - 1)
-    }else{
-      assertBetween(b, hi, depth - 1)
-      //assertBetween(lo, b, depth - 1)
-    }
+    if(~~(Math.random()*2)) 
+      assertBetween(lo, b, depth - 1, between)
+    else
+      assertBetween(b, hi, depth - 1, between)
+    
   }
+
+
+exports.between = function (t) {
 
   assertBetween('!', '~', 200)
 
@@ -41,23 +37,16 @@ exports.between = function (t) {
 */
 exports.between2 = function (t) {
 
-  function assertBetween (lo, hi, depth) {
-    var b = u.between(lo, hi) + u.randstr(5)
+  assertBetween('!', '~', 200, function (a, b) {
+    return u.between (a, b) + u.randstr(5)
+  })
 
-    a.greaterThan(b , lo)
-    a.lessThan(b , hi)
+  t.end()
+}
 
-    if(!depth) return
-    if(~~(Math.random()*2)) {
-      assertBetween(lo, b, depth - 1)
-      //assertBetween(b, hi, depth - 1)
-    }else{
-      assertBetween(b, hi, depth - 1)
-      //assertBetween(lo, b, depth - 1)
-    }
-  }
+exports.between3 = function (t) {
 
-  assertBetween('!', '~', 200)
+  assertBetween(u.lo, u.hi, 200, u('$&[{}(=*)+]!#~`').between)
 
   t.end()
 }
