@@ -1,0 +1,16 @@
+{ "name": "between"
+, "version": "0.0.0"
+, "description": "generate arbitary strings that sort between two strings"
+, "homepage": "http://github.com/dominictarr/between"
+, "repository": 
+  { "type": "git"
+  , "url": "https://github.com/dominictarr/between.git" }
+, "dependencies": {}
+, "devDependencies": {
+    "assertions" : "2",
+    "asynct"     : "1.1"
+  }
+, "scripts": {
+    "test" : "asynct test/index.js"
+  }
+, "author": "Dominic Tarr <dominic.tarr@gmail.com> (dominictarr.com)" }
