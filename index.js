@@ -1,14 +1,10 @@
-exports.clone = 
-function (ary) {
-  return ary.map(function (e) {
-    return Array.isArray(e) ? exports.clone(e) : e
-  })
-}
 
-var exports = module.exports = function (chars, exports) {
+exports = module.exports = function (chars, exports) {
 
   chars = chars ||
   '!0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~'
+
+  chars = chars.split('').sort().join('')
 
   exports = exports || {} 
 
@@ -63,41 +59,29 @@ var exports = module.exports = function (chars, exports) {
 
   function between (a, b) {
 
+    var s = '', i = 0
 
-    var s = '', i = 0, c
-
-     var i = 0
-     while (true) {
+    while (true) {
 
       var _a = chars.indexOf(a[i])
       var _b = chars.indexOf(b[i])
-
+     
       if(_a == -1) _a = 0
       if(_b == -1) _b = chars.length - 1
 
       i++
 
-      if(_a + 1 < _b)
-        c = chars[Math.round((_a+_b)/2)]
-      else
-        c = chars[_a]
+      var c = chars[
+          _a + 1 < _b 
+        ? Math.round((_a+_b)/2) 
+        : _a
+      ]
 
       s += c
 
-  /*
-      console.log()
-      console.log('<<<<', a)
-      console.log('====', s)
-      console.log('>>>>', b) 
-      console.log(a < s && s < b)
-  /**/
-
       if(a < s && s < b && c != exports.lo)
-        break;
-
+        return s;
     }
-
-    return s
   }
 
   function strord (a, b) {
@@ -108,13 +92,7 @@ var exports = module.exports = function (chars, exports) {
     )
   }
 
-  function concat(to, from) {
-    while(from.length)
-      to.push(from.shift())
-    return to
-  }
-
   return exports
 }
 
-exports(null, exports)
+exports(null, module.exports)
