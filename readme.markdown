@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/dominictarr/between.png)](http://travis-ci.org/dominictarr/between)
 # between
 
 generate a string that is between two strings.
