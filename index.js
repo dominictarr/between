@@ -95,4 +95,9 @@ exports = module.exports = function (chars, exports) {
   return exports
 }
 
+//so that the api I expected works...
+module.exports = function (a, b) {
+  return module.exports.between(a, b)
+}
+
 exports(null, module.exports)
