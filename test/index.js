@@ -38,7 +38,7 @@ exports.between = function (t) {
 exports.between2 = function (t) {
 
   assertBetween('!', '~', 200, function (a, b) {
-    return u.between (a, b) + u.randstr(5)
+    return between (a, b) + u.randstr(5)
   })
 
   t.end()
