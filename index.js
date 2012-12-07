@@ -1,12 +1,14 @@
 
-exports = module.exports = function (chars, exports) {
+function inject (chars) {
 
   chars = chars ||
   '!0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~'
 
   chars = chars.split('').sort().join('')
 
-  exports = exports || {} 
+  var exports = between
+
+  exports.between   = between
 
   exports.randstr   = randstr
   exports.between   = between
@@ -14,6 +16,8 @@ exports = module.exports = function (chars, exports) {
 
   exports.lo        = chars[0]
   exports.hi        = chars[chars.length - 1]
+
+  exports.inject    = inject
 
   function randstr(l) {
     var str = ''
@@ -73,7 +77,7 @@ exports = module.exports = function (chars, exports) {
 
       var c = chars[
           _a + 1 < _b 
-        ? Math.round((_a+_b)/2) 
+        ? Math.round((_a+_b)/2)
         : _a
       ]
 
@@ -92,12 +96,10 @@ exports = module.exports = function (chars, exports) {
     )
   }
 
-  return exports
+  between.strord
+
+  return between
 }
 
-//so that the api I expected works...
-module.exports = function (a, b) {
-  return module.exports.between(a, b)
-}
 
-exports(null, module.exports)
+module.exports = inject(null)
