@@ -8,9 +8,9 @@
     "url": "https://github.com/dominictarr/between.git"
   },
   "dependencies": {
-    "tape": "~0.1.0"
   },
   "devDependencies": {
+    "tape": "~0.1.0",
     "assertions": "2",
     "asynct": "1.1"
   },
