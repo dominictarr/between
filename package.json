@@ -1,6 +1,6 @@
 {
   "name": "between",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "generate arbitary strings that sort between two strings",
   "homepage": "http://github.com/dominictarr/between",
   "repository": {
