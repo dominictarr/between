@@ -17,5 +17,6 @@
   "scripts": {
     "test": "asynct test/index.js"
   },
-  "author": "Dominic Tarr <dominic.tarr@gmail.com> (dominictarr.com)"
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (dominictarr.com)",
+  "license": "MIT"
 }

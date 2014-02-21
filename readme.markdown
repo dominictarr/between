@@ -43,5 +43,15 @@ this is like how there is only one number between 0 and 1 that ends in a "0".
 
 the top most string possible, and the lowest string possible. You must not be used
 as positions for items, because it will not be possible to insert items after
-or before them. These values represent the space infront of the first item, and the space between the last item.
+or before them. These values represent the space infront of the first item, and
+the space between the last item.
+
+## cool links
+
+between has been ported to [Objective-C](https://gist.github.com/mirkokiefer/9132311)
+
+## License
+
+MIT
+
 
